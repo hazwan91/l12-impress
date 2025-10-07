@@ -10,11 +10,13 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::create('ns_bank_questions', function (Blueprint $table) {
+        Schema::create('ns_score_references', function (Blueprint $table) {
             $table->id();
-            $table->string('no_siri');
-            $table->text('perkara');
-            $table->boolean('reverse')->default(false);
+            $table->foreignId('nilai_sepunya_id')->constrained('nilai_sepunyas', 'id')->restrictOnDelete();
+            $table->string('skor_penilaian_intervensi_dari', 5);
+            $table->string('skor_penilaian_intervensi_hingga', 5);
+            $table->string('keterangan_umum', 50);
+            $table->string('tindakan');
             $table->foreignId('created_by')->constrained('users', 'id')->restrictOnDelete();
             $table->foreignId('updated_by')->constrained('users', 'id')->restrictOnDelete();
             $table->timestamps();
@@ -26,6 +28,6 @@ return new class () extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('ns_bank_questions');
+        Schema::dropIfExists('ns_score_references');
     }
 };

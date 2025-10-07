@@ -10,11 +10,11 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::create('ns_bank_questions', function (Blueprint $table) {
+        Schema::create('ns_scores', function (Blueprint $table) {
             $table->id();
-            $table->string('no_siri');
-            $table->text('perkara');
-            $table->boolean('reverse')->default(false);
+            $table->foreignId('ns_scorer_id')->constrained('ns_scorers', 'id')->restrictOnDelete();
+            $table->foreignId('ns_question_id')->constrained('ns_questions', 'id')->restrictOnDelete();
+            $table->string('skor', 10)->default(0);
             $table->foreignId('created_by')->constrained('users', 'id')->restrictOnDelete();
             $table->foreignId('updated_by')->constrained('users', 'id')->restrictOnDelete();
             $table->timestamps();
@@ -26,6 +26,6 @@ return new class () extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('ns_bank_questions');
+        Schema::dropIfExists('ns_scores');
     }
 };

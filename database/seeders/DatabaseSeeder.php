@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder
             StationSeeder::class,
             RaceSeeder::class,
             UserSeeder::class,
-            // NsSeeder::class,
-            // NsBankSoalanSeeder::class,
-            // NsRujukanSkorSeeder::class,
+            NilaiSepunyaSeeder::class,
+            NsBankQuestionSeeder::class,
+            NsScoreReferenceSeeder::class,
         ]);
     }
 }

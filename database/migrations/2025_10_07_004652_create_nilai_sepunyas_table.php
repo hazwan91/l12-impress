@@ -15,8 +15,16 @@ return new class () extends Migration {
             $table->string('year', 10);
             $table->integer('jumlah_penilai_min')->default(0);
             $table->integer('jumlah_penilai_max')->default(0);
-            $table->date('tarikh_mula');
-            $table->date('tarikh_akhir')->nullable();
+            $table->date('tarikh_mula_1');
+            $table->date('tarikh_akhir_1');
+            $table->date('tarikh_mula_2')->nullable();
+            $table->date('tarikh_akhir_2')->nullable();
+            $table->date('tarikh_mula_3')->nullable();
+            $table->date('tarikh_akhir_3')->nullable();
+            $table->date('tarikh_mula_4')->nullable();
+            $table->date('tarikh_akhir_4')->nullable();
+            $table->date('tarikh_mula_5')->nullable();
+            $table->date('tarikh_akhir_5')->nullable();
             $table->text('catatan')->nullable();
             $table->foreignId('created_by')->constrained('users', 'id')->restrictOnDelete();
             $table->foreignId('updated_by')->constrained('users', 'id')->restrictOnDelete();
