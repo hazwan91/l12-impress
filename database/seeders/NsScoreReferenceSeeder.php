@@ -17,7 +17,7 @@ class NsScoreReferenceSeeder extends Seeder
         $ns = NilaiSepunya::query()->where('year', '=', '2025')->firstOrFail();
 
         $nsRujukanSkor = new NsScoreReference();
-        $nsRujukanSkor->ns_id = $ns->id;
+        $nsRujukanSkor->nilai_sepunya_id = $ns->id;
         $nsRujukanSkor->skor_penilaian_intervensi_dari = '5';
         $nsRujukanSkor->skor_penilaian_intervensi_hingga = '5';
         $nsRujukanSkor->keterangan_umum = 'Terpuji';
@@ -27,7 +27,7 @@ class NsScoreReferenceSeeder extends Seeder
         $nsRujukanSkor->save();
 
         $nsRujukanSkor = new NsScoreReference();
-        $nsRujukanSkor->ns_id = $ns->id;
+        $nsRujukanSkor->nilai_sepunya_id = $ns->id;
         $nsRujukanSkor->skor_penilaian_intervensi_dari = '4';
         $nsRujukanSkor->skor_penilaian_intervensi_hingga = '4.99';
         $nsRujukanSkor->keterangan_umum = 'Cemerlang';
@@ -37,7 +37,7 @@ class NsScoreReferenceSeeder extends Seeder
         $nsRujukanSkor->save();
 
         $nsRujukanSkor = new NsScoreReference();
-        $nsRujukanSkor->ns_id = $ns->id;
+        $nsRujukanSkor->nilai_sepunya_id = $ns->id;
         $nsRujukanSkor->skor_penilaian_intervensi_dari = '3';
         $nsRujukanSkor->skor_penilaian_intervensi_hingga = '3.99';
         $nsRujukanSkor->keterangan_umum = 'Sederhana';
@@ -47,7 +47,7 @@ class NsScoreReferenceSeeder extends Seeder
         $nsRujukanSkor->save();
 
         $nsRujukanSkor = new NsScoreReference();
-        $nsRujukanSkor->ns_id = $ns->id;
+        $nsRujukanSkor->nilai_sepunya_id = $ns->id;
         $nsRujukanSkor->skor_penilaian_intervensi_dari = '2';
         $nsRujukanSkor->skor_penilaian_intervensi_hingga = '2.99';
         $nsRujukanSkor->keterangan_umum = 'Memuaskan';
@@ -57,7 +57,7 @@ class NsScoreReferenceSeeder extends Seeder
         $nsRujukanSkor->save();
 
         $nsRujukanSkor = new NsScoreReference();
-        $nsRujukanSkor->ns_id = $ns->id;
+        $nsRujukanSkor->nilai_sepunya_id = $ns->id;
         $nsRujukanSkor->skor_penilaian_intervensi_dari = '1';
         $nsRujukanSkor->skor_penilaian_intervensi_hingga = '1.99';
         $nsRujukanSkor->keterangan_umum = 'Tidam Memuaskan';

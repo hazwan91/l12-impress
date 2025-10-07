@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Login;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -26,10 +27,18 @@ class AppPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('app')
-            ->path('app')
-            ->login()
+            ->path('')
+            ->login(Login::class)
             ->colors([
-                'primary' => Color::Amber,
+                'danger' => Color::Rose,
+                'gray' => Color::Zinc,
+                'info' => Color::Blue,
+                'primary' => Color::Sky,
+                'success' => Color::Teal,
+                'warning' => Color::Orange,
+                'pink' => Color::Pink,
+                'blue' => Color::Blue,
+                'purple' => Color::Purple
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
@@ -54,6 +63,9 @@ class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->viteTheme([
+                'resources/css/filament/app/theme.css'
             ]);
     }
 }

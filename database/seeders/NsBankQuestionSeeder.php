@@ -29,8 +29,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -45,8 +45,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -61,8 +61,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -77,8 +77,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -93,8 +93,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -109,8 +109,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -125,8 +125,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -141,8 +141,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -157,8 +157,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -173,8 +173,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -189,8 +189,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -205,8 +205,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -221,8 +221,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -237,8 +237,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;
@@ -253,8 +253,8 @@ class NsBankQuestionSeeder extends Seeder
         $nsBankSoalan->save();
 
         $nsSoalan = new NsQuestion();
-        $nsSoalan->ns_id = $ns->id;
-        $nsSoalan->ns_bank_soalan_id = $nsBankSoalan->id;
+        $nsSoalan->nilai_sepunya_id = $ns->id;
+        $nsSoalan->ns_bank_question_id = $nsBankSoalan->id;
         $nsSoalan->active = true;
         $nsSoalan->created_by = 1;
         $nsSoalan->updated_by = 1;

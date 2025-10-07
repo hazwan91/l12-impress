@@ -12,6 +12,7 @@ return new class () extends Migration {
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('users', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('department_id')->nullable()->constrained('departments')->restrictOnDelete();
             $table->foreignId('station_id')->nullable()->constrained('stations')->restrictOnDelete();
             $table->foreignId('appoint_status_id')->nullable()->constrained('appoint_statuses')->restrictOnDelete();

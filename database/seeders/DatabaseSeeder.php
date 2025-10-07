@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             NilaiSepunyaSeeder::class,
             NsBankQuestionSeeder::class,
             NsScoreReferenceSeeder::class,
+            NsQuestionSeeder::class,
         ]);
     }
 }
