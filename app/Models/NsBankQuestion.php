@@ -21,4 +21,9 @@ class NsBankQuestion extends Model
         'perkara' => 'string',
         'reverse' => 'boolean',
     ];
+
+    public function nsQuestions()
+    {
+        return $this->hasMany(NsQuestion::class);
+    }
 }

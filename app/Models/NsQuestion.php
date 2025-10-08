@@ -23,4 +23,9 @@ class NsQuestion extends Model
         'ordering' => 'integer',
         'active' => 'boolean',
     ];
+
+    public function nsBankQuestion()
+    {
+        return $this->belongsTo(NsBankQuestion::class);
+    }
 }

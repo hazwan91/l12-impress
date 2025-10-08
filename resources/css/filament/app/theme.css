@@ -1,4 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Permanent+Marker&display=swap");
+
+/* @import '../../../../vendor/resma/filament-awin-theme/resources/css/theme.css'; */
+/* @import '../../../../vendor/andreia/filament-nord-theme/resources/css/theme.css'; */
 @import '../../../../vendor/filament/filament/resources/css/theme.css';
+@import "animate.css";
 
 @source '../../../../app/Filament/**/*';
 @source '../../../../resources/views/filament/**/*';
+
+.permanent-marker-regular {
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: "<angle>";
+}
+
+.fi-breadcrumbs {
+    @apply block;
+}
+
+.fi-breadcrumbs .fi-breadcrumbs-item:last-child .fi-breadcrumbs-item-label {
+    @apply text-primary-500;
+}
