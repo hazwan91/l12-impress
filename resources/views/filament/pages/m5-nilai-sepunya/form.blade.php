@@ -1,3 +1,3 @@
 <x-filament-panels::page>
-    {{-- Page content --}}
+    dadasdas
 </x-filament-panels::page>

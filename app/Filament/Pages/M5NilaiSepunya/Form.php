@@ -21,7 +21,7 @@ use Illuminate\Contracts\Support\Htmlable;
 
 class Form extends Page
 {
-    // protected string $view = 'filament.pages.m5-nilai-sepunya.form';
+    protected string $view = 'filament.pages.m5-nilai-sepunya.form';
 
     protected static ?string $slug = 'm5-nilai-sepunya/soalan';
 
@@ -30,13 +30,13 @@ class Form extends Page
         return 'Borang Nilai Sepunya';
     }
 
-    public function content(Schema $schema): Schema
-    {
-        return $schema
-            ->components([
-                Livewire::make(\App\Livewire\M5NilaiSepunya\TabYears::class),
-                Livewire::make(\App\Livewire\M5NilaiSepunya\TableScoreLogs::class),
-                Livewire::make(\App\Livewire\M5NilaiSepunya\FormCreateScore::class),
-            ]);
-    }
+    // public function content(Schema $schema): Schema
+    // {
+    //     return $schema
+    //         ->components([
+    //             Livewire::make(\App\Livewire\M5NilaiSepunya\TabYears::class),
+    //             Livewire::make(\App\Livewire\M5NilaiSepunya\TableScoreLogs::class),
+    //             Livewire::make(\App\Livewire\M5NilaiSepunya\FormCreateScore::class),
+    //         ]);
+    // }
 }

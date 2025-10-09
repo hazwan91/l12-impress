@@ -25,6 +25,8 @@ class TabYears extends Component implements HasSchemas, HasActions
             ->components([
                 Tabs::make('years')
                     ->tabs($this->nsYearsTab())
+                    ->persistTabInQueryString('tahun')
+                    ->grow()
             ]);
     }
 
@@ -38,7 +40,7 @@ class TabYears extends Component implements HasSchemas, HasActions
     {
         $array = [];
         foreach ($this->nsYears as $nsYear) {
-            $array[] = Tab::make($nsYear);
+            $array[] = Tab::make($nsYear)->grow();
         }
         return $array;
     }
