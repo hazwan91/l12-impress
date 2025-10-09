@@ -4,10 +4,12 @@ namespace App\Livewire\M5NilaiSepunya;
 
 use App\Models\NsQuestion;
 use App\Models\NsScore;
+use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Actions;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
@@ -95,7 +97,19 @@ class FormCreateScore extends Component implements HasActions, HasSchemas
                     ])->inline();
             }
         }
+        $array[] = Actions::make([
+            Action::make('create')
+                ->label('Simpan & Muktamad')
+                ->requiresConfirmation()
+                ->submit('create')
+        ]);
         $array[] = Section::make('Borang Nilai Sepunya')->schema($arraySoalan);
+        $array[] = Actions::make([
+            Action::make('create')
+                ->label('Simpan & Muktamad')
+                ->requiresConfirmation()
+                ->submit('create')
+        ]);
         return $array;
     }
 
