@@ -16,5 +16,8 @@
     },
     "dependencies": {
         "animate.css": "^4.1.1"
+    },
+    "optionalDependencies": {
+        "lightningcss.android-arm64.node": "^1.29.3-1"
     }
 }
