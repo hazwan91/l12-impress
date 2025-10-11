@@ -43,4 +43,9 @@ class NilaiSepunya extends Model
         'tarikh_akhir_5' => 'date',
         'catatan' => 'string',
     ];
+
+    public function nsScoreLogs()
+    {
+        return $this->hasMany(NsScoreLog::class);
+    }
 }

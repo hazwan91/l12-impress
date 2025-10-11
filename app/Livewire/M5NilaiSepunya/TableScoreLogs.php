@@ -22,10 +22,12 @@ class TableScoreLogs extends Component implements HasActions, HasSchemas, HasTab
     use InteractsWithTable;
     use InteractsWithSchemas;
 
+    public ?string $yearSelected = null;
+
     public function table(Table $table): Table
     {
         return $table
-            ->query(fn (): Builder => NsScoreLog::query())
+            ->query(fn(): Builder => NsScoreLog::query()->whereRelation('nilaiSepunya', 'year', $this->yearSelected))
             ->defaultPaginationPageOption(5)
             ->heading('Senarai Log Pemarkahan')
             ->emptyStateHeading('Tiada tindakan setakat ini')

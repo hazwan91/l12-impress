@@ -21,4 +21,9 @@ class NsScoreLog extends Model
         'subject' => 'string',
         'type' => 'string',
     ];
+
+    public function nilaiSepunya()
+    {
+        return $this->belongsTo(NilaiSepunya::class);
+    }
 }
