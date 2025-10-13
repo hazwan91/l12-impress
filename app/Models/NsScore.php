@@ -21,4 +21,9 @@ class NsScore extends Model
         'ns_question_id' => 'integer',
         'skor' => 'string',
     ];
+
+    public function nsQuestion()
+    {
+        return $this->belongsTo(NsQuestion::class, 'ns_question_id');
+    }
 }

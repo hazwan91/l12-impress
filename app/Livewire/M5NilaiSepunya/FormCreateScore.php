@@ -54,14 +54,7 @@ class FormCreateScore extends Component implements HasActions, HasSchemas
             //     ->required()
             //     ->numeric(),
             // ])
-            ->components([
-                Repeater::make('questions')
-                    ->table([
-                        TableColumn::make('No.'),
-                        TableColumn::make('Perkara'),
-                    ])
-                    ->schema($this->questionsSchema())
-            ])
+            ->components($this->questionsSchema())
             ->statePath('data')
             ->model(NsScore::class)
             ->inline(false)
@@ -86,34 +79,10 @@ class FormCreateScore extends Component implements HasActions, HasSchemas
                 'nsBankQuestion'
             ])
             ->where('active', true)->get();
-        // foreach ($nsQuestions as $key => $nsQuestion) {
-        //     if ($nsQuestion->nsBankQuestion->reverse) {
-        //         $arraySoalan[] = Radio::make($nsQuestion->id)
-        //             ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
-        //             ->options([
-        //                 '5' => 'Tidak Pernah',
-        //                 '4' => 'Jarang-Jarang',
-        //                 '3' => 'Kadang-Kadang',
-        //                 '2' => 'Kerap',
-        //                 '1' => 'Sangat Kerap',
-        //             ])->inline();
-        //     } else {
-        //         $arraySoalan[] = Radio::make($nsQuestion->id)
-        //             ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
-        //             ->options([
-        //                 '1' => 'Tidak Pernah',
-        //                 '2' => 'Jarang-Jarang',
-        //                 '3' => 'Kadang-Kadang',
-        //                 '4' => 'Kerap',
-        //                 '5' => 'Sangat Kerap',
-        //             ])->inline();
-        //     }
-        // }
         foreach ($nsQuestions as $key => $nsQuestion) {
             if ($nsQuestion->nsBankQuestion->reverse) {
-                $arraySoalan[][] = Radio::make($nsQuestion->id)
-                    // ->label(null)
-                    ->hiddenLabel()
+                $arraySoalan[] = Radio::make($nsQuestion->id)
+                    ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
                     ->options([
                         '5' => 'Tidak Pernah',
                         '4' => 'Jarang-Jarang',
@@ -122,9 +91,8 @@ class FormCreateScore extends Component implements HasActions, HasSchemas
                         '1' => 'Sangat Kerap',
                     ])->inline();
             } else {
-                $arraySoalan[][] = TextEntry::make('asdasd');
-                $arraySoalan[][] = Radio::make($nsQuestion->id)
-                    ->label(false)
+                $arraySoalan[] = Radio::make($nsQuestion->id)
+                    ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
                     ->options([
                         '1' => 'Tidak Pernah',
                         '2' => 'Jarang-Jarang',

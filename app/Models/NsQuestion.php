@@ -24,6 +24,11 @@ class NsQuestion extends Model
         'active' => 'boolean',
     ];
 
+    public function nilaiSepunya()
+    {
+        return $this->belongsTo(NilaiSepunya::class);
+    }
+
     public function nsBankQuestion()
     {
         return $this->belongsTo(NsBankQuestion::class);
