@@ -81,26 +81,27 @@ class FormCreateScore extends Component implements HasActions, HasSchemas
             ->where('active', true)->get();
         foreach ($nsQuestions as $key => $nsQuestion) {
             if ($nsQuestion->nsBankQuestion->reverse) {
-                $arraySoalan[] = Radio::make($nsQuestion->id)
-                    ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
-                    ->options([
-                        '5' => 'Tidak Pernah',
-                        '4' => 'Jarang-Jarang',
-                        '3' => 'Kadang-Kadang',
-                        '2' => 'Kerap',
-                        '1' => 'Sangat Kerap',
-                    ])->inline();
+                $options = [
+                    '5' => 'Tidak Pernah',
+                    '4' => 'Jarang-Jarang',
+                    '3' => 'Kadang-Kadang',
+                    '2' => 'Kerap',
+                    '1' => 'Sangat Kerap',
+                ];
             } else {
-                $arraySoalan[] = Radio::make($nsQuestion->id)
-                    ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
-                    ->options([
-                        '1' => 'Tidak Pernah',
-                        '2' => 'Jarang-Jarang',
-                        '3' => 'Kadang-Kadang',
-                        '4' => 'Kerap',
-                        '5' => 'Sangat Kerap',
-                    ])->inline();
+                $array = [
+                    '1' => 'Tidak Pernah',
+                    '2' => 'Jarang-Jarang',
+                    '3' => 'Kadang-Kadang',
+                    '4' => 'Kerap',
+                    '5' => 'Sangat Kerap',
+                ];
             }
+            $arraySoalan = [
+                Radio::make($nsQuestion->id)
+                    ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
+                    ->options($options)->inline(),
+            ];
         }
         $array[] = Actions::make([
             Action::make('create')
