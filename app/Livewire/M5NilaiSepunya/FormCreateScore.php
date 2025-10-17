@@ -13,6 +13,7 @@ use Filament\Forms\Components\Repeater\TableColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Actions;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Text;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
@@ -89,18 +90,25 @@ class FormCreateScore extends Component implements HasActions, HasSchemas
                     '1' => 'Sangat Kerap',
                 ];
             } else {
-                $array = [
-                    '1' => 'Tidak Pernah',
-                    '2' => 'Jarang-Jarang',
+                $options = [
+                    '5' => 'Tidak Pernah',
+                    '4' => 'Jarang-Jarang',
                     '3' => 'Kadang-Kadang',
-                    '4' => 'Kerap',
-                    '5' => 'Sangat Kerap',
+                    '2' => 'Kerap',
+                    '1' => 'Sangat Kerap',
                 ];
             }
-            $arraySoalan = [
-                Radio::make($nsQuestion->id)
-                    ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
-                    ->options($options)->inline(),
+            $arraySoalan[] = [
+                Grid::make([
+                    'default' => 1,
+                    'md' => 2
+                ])
+                    ->components([
+                        Text::make($nsQuestion->nsBankQuestion->perkara),
+                        Radio::make($nsQuestion->id)
+                            ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
+                            ->options($options)->inline(),
+                    ])
             ];
         }
         $array[] = Actions::make([
