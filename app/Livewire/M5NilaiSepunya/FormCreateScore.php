@@ -19,13 +19,20 @@ use Filament\Schemas\Components\Text;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ViewColumn;
+use Filament\Tables\Concerns\InteractsWithTable;
+use Filament\Tables\Contracts\HasTable;
+use Filament\Tables\Table;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
 
-class FormCreateScore extends Component implements HasActions, HasSchemas
+class FormCreateScore extends Component implements HasActions, HasSchemas, HasTable
 {
     use InteractsWithActions;
     use InteractsWithSchemas;
+    use InteractsWithTable;
 
     public ?array $data = [];
     public ?string $yearSelected = null;
@@ -35,26 +42,33 @@ class FormCreateScore extends Component implements HasActions, HasSchemas
         $this->form->fill();
     }
 
+    public function table(Table $table)
+    {
+        return $table
+            ->query(
+                NsQuestion::query()
+                    ->with([
+                        'nsBankQuestion'
+                    ])
+                    ->where('active', true)
+            )
+            ->columns([
+                TextColumn::make('nsBankQuestion.perkara')
+                    ->label('Question')
+                    ->weight('medium'),
+                ViewColumn::make('answer')
+                    ->view('filament.tables.columns.m5-answer-radio')
+                    ->viewData(fn(Model $record) => [
+                        'questionId' => $record->id,
+                        'currentValue' => null
+                    ])
+                    ->inline()
+            ]);
+    }
+
     public function form(Schema $schema): Schema
     {
         return $schema
-            // ->components([
-            // TextInput::make('ns_scorer_id')
-            //     ->required()
-            //     ->numeric(),
-            // TextInput::make('ns_question_id')
-            //     ->required()
-            //     ->numeric(),
-            // TextInput::make('skor')
-            //     ->required()
-            //     ->default('0'),
-            // TextInput::make('created_by')
-            //     ->required()
-            //     ->numeric(),
-            // TextInput::make('updated_by')
-            //     ->required()
-            //     ->numeric(),
-            // ])
             ->components($this->questionsSchema())
             ->statePath('data')
             ->model(NsScore::class)
@@ -98,25 +112,22 @@ class FormCreateScore extends Component implements HasActions, HasSchemas
                     '1' => 'Sangat Kerap',
                 ];
             }
-            $arraySoalan[] = [
-                Grid::make([
-                    'default' => 1,
-                    'md' => 2
-                ])
-                    ->components([
-                        Text::make($nsQuestion->nsBankQuestion->perkara),
+            $arraySoalan[] = Grid::make([
+                'default' => 12,
+            ])->components([
+                        Text::make($nsQuestion->nsBankQuestion->perkara)
+                            ->columnSpan([
+                                'default' => 12
+                            ]),
                         Radio::make($nsQuestion->id)
+                            ->hiddenLabel()
                             ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
-                            ->options($options)->inline(),
-                    ])
-            ];
+                            ->options($options)->inline()
+                            ->columnSpan([
+                                'default' => 12
+                            ]),
+                    ]);
         }
-        $array[] = Actions::make([
-            Action::make('create')
-                ->label('Simpan & Muktamad')
-                ->requiresConfirmation()
-                ->submit('create')
-        ]);
         $array[] = Section::make('Borang Nilai Sepunya')->schema($arraySoalan);
         $array[] = Actions::make([
             Action::make('create')
@@ -124,6 +135,7 @@ class FormCreateScore extends Component implements HasActions, HasSchemas
                 ->requiresConfirmation()
                 ->submit('create')
         ]);
+        // dd($array);
         return $array;
     }
 
