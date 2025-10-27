@@ -57,7 +57,10 @@ class FormCreateScore extends Component implements HasActions, HasSchemas, HasTa
                             Text::make('r4')->content('4')->extraAttributes(['class' => 'text-center']),
                             Text::make('r5')->content('5')->extraAttributes(['class' => 'text-center']),
                         ])
-                        ->extraAttributes(['class' => 'bg-gray-100 font-bold border-b']),
+                        ->extraAttributes(['class' => 'bg-gray-100 font-bold border-b px-2 py-2']),
+                    Grid::make(8)
+                        ->schema($this->questions())
+                        ->extraAttributes(['class' => 'bg-gray-100 font-bold border-b px-2 py-2']),
                 ])->extraAttributes(['class' => '']),
             ])
             ->statePath('data')
@@ -73,6 +76,58 @@ class FormCreateScore extends Component implements HasActions, HasSchemas, HasTa
         $record = NsScore::create($data);
 
         $this->form->model($record)->saveRelationships();
+    }
+
+    protected function questions()
+    {
+        $array = [];
+        $nsQuestions = NsQuestion::query()
+            ->with([
+                'nsBankQuestion'
+            ])
+            ->where('active', true)->get();
+        foreach ($nsQuestions as $key => $nsQuestion) {
+            if ($nsQuestion->nsBankQuestion->reverse) {
+                $options = [
+                    '5' => 'Tidak Pernah',
+                    '4' => 'Jarang-Jarang',
+                    '3' => 'Kadang-Kadang',
+                    '2' => 'Kerap',
+                    '1' => 'Sangat Kerap',
+                ];
+            } else {
+                $options = [
+                    '5' => 'Tidak Pernah',
+                    '4' => 'Jarang-Jarang',
+                    '3' => 'Kadang-Kadang',
+                    '2' => 'Kerap',
+                    '1' => 'Sangat Kerap',
+                ];
+            }
+
+            $array[] = Text::make($nsQuestion->nsBankQuestion->perkara);
+            $array[] = Radio::make($nsQuestion->id . '_1')
+                ->hiddenLabel()
+                ->label(null)
+                ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
+            $array[] = Radio::make($nsQuestion->id . '_2')
+                ->hiddenLabel()
+                ->label(null)
+                ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
+            $array[] = Radio::make($nsQuestion->id . '_3')
+                ->hiddenLabel()
+                ->label(null)
+                ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
+            $array[] = Radio::make($nsQuestion->id . '_4')
+                ->hiddenLabel()
+                ->label(null)
+                ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
+            $array[] = Radio::make($nsQuestion->id . '_5')
+                ->hiddenLabel()
+                ->label(null)
+                ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
+        }
+        return $array;
     }
 
     protected function questionsSchema(): array|Section
