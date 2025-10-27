@@ -3,10 +3,11 @@
 
 /* @import '../../../../vendor/resma/filament-awin-theme/resources/css/theme.css'; */
 /* @import '../../../../vendor/andreia/filament-nord-theme/resources/css/theme.css'; */
-@import '../../../../vendor/filament/filament/resources/css/theme.css';
+@import "../../../../vendor/filament/filament/resources/css/theme.css";
 @import "animate.css";
 
 @source '../../../../app/Filament/**/*';
+@source '../../../../app/Livewire/**/*';
 @source '../../../../resources/views/filament/**/*';
 
 .permanent-marker-regular {
@@ -33,4 +34,8 @@
 
 .fi-breadcrumbs .fi-breadcrumbs-item:last-child .fi-breadcrumbs-item-label {
     @apply text-primary-500;
+}
+
+.bg-gray-100 {
+    @apply bg-gray-100;
 }

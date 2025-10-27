@@ -42,34 +42,24 @@ class FormCreateScore extends Component implements HasActions, HasSchemas, HasTa
         $this->form->fill();
     }
 
-    public function table(Table $table)
-    {
-        return $table
-            ->query(
-                NsQuestion::query()
-                    ->with([
-                        'nsBankQuestion'
-                    ])
-                    ->where('active', true)
-            )
-            ->columns([
-                TextColumn::make('nsBankQuestion.perkara')
-                    ->label('Question')
-                    ->weight('medium'),
-                ViewColumn::make('answer')
-                    ->view('filament.tables.columns.m5-answer-radio')
-                    ->viewData(fn(Model $record) => [
-                        'questionId' => $record->id,
-                        'currentValue' => null
-                    ])
-                    ->inline()
-            ]);
-    }
-
     public function form(Schema $schema): Schema
     {
         return $schema
-            ->components($this->questionsSchema())
+            // ->components($this->questionsSchema())
+            ->components([
+                Section::make('Borang Nilai Sepunya')->schema([
+                    Grid::make(8)
+                        ->schema([
+                            Text::make('desc')->content('Perkara')->columnSpan(3),
+                            Text::make('r1')->content('1')->extraAttributes(['class' => 'text-center']),
+                            Text::make('r2')->content('2')->extraAttributes(['class' => 'text-center']),
+                            Text::make('r3')->content('3')->extraAttributes(['class' => 'text-center']),
+                            Text::make('r4')->content('4')->extraAttributes(['class' => 'text-center']),
+                            Text::make('r5')->content('5')->extraAttributes(['class' => 'text-center']),
+                        ])
+                        ->extraAttributes(['class' => 'bg-gray-100 font-bold border-b']),
+                ])->extraAttributes(['class' => '']),
+            ])
             ->statePath('data')
             ->model(NsScore::class)
             ->inline(false)
@@ -112,21 +102,15 @@ class FormCreateScore extends Component implements HasActions, HasSchemas, HasTa
                     '1' => 'Sangat Kerap',
                 ];
             }
-            $arraySoalan[] = Grid::make([
-                'default' => 12,
-            ])->components([
-                        Text::make($nsQuestion->nsBankQuestion->perkara)
-                            ->columnSpan([
-                                'default' => 12
-                            ]),
-                        Radio::make($nsQuestion->id)
-                            ->hiddenLabel()
-                            ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
-                            ->options($options)->inline()
-                            ->columnSpan([
-                                'default' => 12
-                            ]),
-                    ]);
+            $arraySoalan[] = Grid::make(6)->components([
+                Text::make($nsQuestion->nsBankQuestion->perkara)
+                    ->columnSpan(3),
+                Radio::make($nsQuestion->id)
+                    ->hiddenLabel()
+                    ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
+                    ->options($options)->inline()
+                    ->columnSpan(3),
+            ]);
         }
         $array[] = Section::make('Borang Nilai Sepunya')->schema($arraySoalan);
         $array[] = Actions::make([

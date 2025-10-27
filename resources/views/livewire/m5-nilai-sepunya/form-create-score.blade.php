@@ -1,7 +1,6 @@
 <div>
-    {{-- <form wire:submit="create">
+    <form wire:submit="create">
         {{ $this->form }}
-    </form> --}}
-    {{ $this->table }}
+    </form>
     <x-filament-actions::modals />
 </div>
