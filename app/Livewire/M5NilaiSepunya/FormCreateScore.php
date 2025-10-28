@@ -105,27 +105,38 @@ class FormCreateScore extends Component implements HasActions, HasSchemas, HasTa
                 ];
             }
 
-            $array[] = Text::make($nsQuestion->nsBankQuestion->perkara);
+            // $array[] = Grid::make(6)->components([
+            //     Text::make($nsQuestion->nsBankQuestion->perkara)
+            //         ->columnSpan(3),
+            // Radio::make($nsQuestion->id)
+            //     ->hiddenLabel()
+            //     ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
+            //     ->options($options)->inline()
+            //     ->columnSpan(1),
+            // Radio::make($nsQuestion->id)
+            //     ->hiddenLabel()
+            //     ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
+            //     ->options($options)->inline()
+            //     ->columnSpan(1),
+            // ]);
+
+            $array[] = Text::make($nsQuestion->nsBankQuestion->perkara)->columnSpan(3);
             $array[] = Radio::make($nsQuestion->id . '_1')
                 ->hiddenLabel()
                 ->label(null)
-                ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
-            $array[] = Radio::make($nsQuestion->id . '_2')
-                ->hiddenLabel()
-                ->label(null)
-                ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
-            $array[] = Radio::make($nsQuestion->id . '_3')
-                ->hiddenLabel()
-                ->label(null)
-                ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
-            $array[] = Radio::make($nsQuestion->id . '_4')
-                ->hiddenLabel()
-                ->label(null)
-                ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
-            $array[] = Radio::make($nsQuestion->id . '_5')
-                ->hiddenLabel()
-                ->label(null)
-                ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
+                ->options($options)->extraAttributes(['class' => 'text-center'])->inline()->columnSpan(5);
+            // $array[] = Radio::make($nsQuestion->id . '_3')
+            //     ->hiddenLabel()
+            //     ->label(null)
+            //     ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
+            // $array[] = Radio::make($nsQuestion->id . '_4')
+            //     ->hiddenLabel()
+            //     ->label(null)
+            //     ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
+            // $array[] = Radio::make($nsQuestion->id . '_5')
+            //     ->hiddenLabel()
+            //     ->label(null)
+            //     ->options($options)->extraAttributes(['class' => 'text-center'])->inline();
         }
         return $array;
     }
@@ -164,7 +175,12 @@ class FormCreateScore extends Component implements HasActions, HasSchemas, HasTa
                     ->hiddenLabel()
                     ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
                     ->options($options)->inline()
-                    ->columnSpan(3),
+                    ->columnSpan(1),
+                Radio::make($nsQuestion->id)
+                    ->hiddenLabel()
+                    ->label(fn() => ($key + 1) . '. ' . $nsQuestion->nsBankQuestion->perkara)
+                    ->options($options)->inline()
+                    ->columnSpan(1),
             ]);
         }
         $array[] = Section::make('Borang Nilai Sepunya')->schema($arraySoalan);
