@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration {
+return new class() extends Migration {
     /**
      * Run the migrations.
      */
@@ -25,6 +25,16 @@ return new class () extends Migration {
             $table->date('tarikh_akhir_4')->nullable();
             $table->date('tarikh_mula_5')->nullable();
             $table->date('tarikh_akhir_5')->nullable();
+            $table->date('tarikh_mula_6');
+            $table->date('tarikh_akhir_6');
+            $table->date('tarikh_mula_7')->nullable();
+            $table->date('tarikh_akhir_7')->nullable();
+            $table->date('tarikh_mula_8')->nullable();
+            $table->date('tarikh_akhir_8')->nullable();
+            $table->date('tarikh_mula_9')->nullable();
+            $table->date('tarikh_akhir_9')->nullable();
+            $table->date('tarikh_mula_10')->nullable();
+            $table->date('tarikh_akhir_10')->nullable();
             $table->text('catatan')->nullable();
             $table->foreignId('created_by')->constrained('users', 'id')->restrictOnDelete();
             $table->foreignId('updated_by')->constrained('users', 'id')->restrictOnDelete();
